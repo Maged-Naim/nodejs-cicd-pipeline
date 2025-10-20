@@ -1,11 +1,14 @@
-const http = require('http');
+const express = require('express');
+const app = express();
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello from Node.js CI/CD Pipeline!');
+app.get('/', (req, res) => {
+res.send('Hello, Mego! Your Node.js app is running on AWS 🚀');
 });
 
-server.listen(5000, () => {
-  console.log('Server running on port 5000');
+app.get('/mego', (req, res) => {
+res.send('Hello, Pipeline is working Fine! 💪');
 });
 
+app.listen(5000, () => {
+console.log('App is running on port 5000');
+});
